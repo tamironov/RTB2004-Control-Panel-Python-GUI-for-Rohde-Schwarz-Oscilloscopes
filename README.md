@@ -1,67 +1,41 @@
-RTB2004 Control Panel – Python GUI for Rohde & Schwarz Oscilloscopes
+# RTB2004 Control Panel – Python GUI for Rohde & Schwarz Oscilloscopes
 
-This repository contains a modern Python GUI application for controlling the Rohde & Schwarz RTB2004 digital oscilloscope over USB or LAN using PyVISA.
-The interface is built with CustomTkinter and designed with ATE-style usability in mind.
+A modern Python GUI for controlling the **Rohde & Schwarz RTB2004** oscilloscope via **USB or LAN (TCPIP)** using **PyVISA**.  
+Built with **CustomTkinter**, optimized for ATE (Automated Test Equipment) environments, and designed for smooth, intuitive operation.
 
-🔧 Features
+---
 
-VISA Device Scanner
-Automatically lists all connected VISA instruments.
+## Features
 
-LAN Control (TCPIP)
-Connect to the oscilloscope via Ethernet using a configurable IP address.
+### Connection & Communication
+- VISA device scanning (USB/serial instruments)
+- TCP/IP LAN connection using user-defined IP
+- Real-time status bar with instrument identification (`*IDN?`)
+- Automatic VISA resource handling
 
-Connection & Status Panel
-Displays real-time connection state and full instrument ID response.
+### Channel Controls
+- Select channel (CH1–CH4)
+- Vertical scale (V/div)
+- Vertical offset (V)
+- Coupling options: DC / AC / GND
+- Probe attenuation: 1×, 10×, 100×
 
-Channel Control Panel
+### Timebase Controls
+- Time scale (s/div)
+- Horizontal position (s)
 
-Vertical scale
+### Trigger Controls
+- Source selection (CH1–CH4, EXT)
+- Trigger mode (AUTO / NORMAL / SINGLE)
+- Trigger level (V)
 
-Offset
+### Acquisition Actions
+- RUN
+- STOP
+- AutoSet
+- Apply All Settings (batch SCPI execution)
 
-Coupling (DC/AC/GND)
+### Multithreading
+- All SCPI write operations are threaded to avoid GUI freezing
+- Safe error handling with message popups
 
-Probe attenuation
-
-Timebase Control
-
-Scale (s/div)
-
-Time position
-
-Trigger Control
-
-Source (CH1–CH4, EXT)
-
-Mode (AUTO, NORMAL, SINGLE)
-
-Trigger level
-
-Acquisition Commands
-
-RUN
-
-STOP
-
-AutoSet
-
-Batch Configuration
-Apply all channel, timebase, and trigger settings with one button.
-
-Threaded SCPI Execution
-Prevents GUI freeze during slow VISA communication.
-
-🧩 Technologies Used
-
-Python 3
-
-CustomTkinter
-
-PyVISA
-
-Tkinter
-
-SCPI instrument control
-
-Threading
